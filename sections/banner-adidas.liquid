@@ -1,0 +1,70 @@
+{{ 'adidas-banner.css' | asset_url | stylesheet_tag }}
+
+{{
+  section.settings.main_image
+  | image_url: width: 1440
+  | image_tag:
+    width: 1900,
+    widths: '200, 300, 400, 800,1440',
+    class: 'adidas-banner--image',
+    alt: 'Adidas banner testing'
+}}
+
+<article class="adidas-banner-content">
+  {% if section.settings.title != blank %}
+    <h1>{{ section.settings.title }}</h1>
+  {% endif %}
+
+  {% if section.settings.subtitle != blank %}
+    <p>{{ section.settings.subtitle }}</p>
+  {% endif %}
+
+  <div class="adidas-banner--butons-container">
+    {% if section.settings.cta_text_1 != blank -%}
+      <a href="{{ section.settings.cta_url_1 }}"> {{ section.settings.cta_text_1 }} </a>
+    {% endif %}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Adidas banner",
+  "class": "adidas-banner-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image banner"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Banner title",
+      "default": "AGRAVIC"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Banner subtitle",
+      "default": "Experimenta la velocidad como nunca antes."
+    },
+    {
+      "type": "url",
+      "id": "cta_url_1",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text_1",
+      "label": "Button text 1",
+      "default": "Compra Ahora"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Adidas Banner"
+    }
+  ]
+}
+{% endschema %}
