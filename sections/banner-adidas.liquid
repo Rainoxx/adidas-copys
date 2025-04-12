@@ -10,7 +10,7 @@
     alt: 'Adidas banner testing'
 }}
 
-<article class="adidas-banner-content">
+<article class="adidas-banner-content {{ section.settings.vertical_align }} {{ section.settings.horizontal_align }}">
   {% if section.settings.title != blank %}
     <h1>{{ section.settings.title }}</h1>
   {% endif %}
@@ -59,6 +59,50 @@
       "id": "cta_text_1",
       "label": "Button text 1",
       "default": "Compra Ahora"
+    },
+    {
+      "type": "header",
+      "content": "Content Position"
+    },
+    {
+      "type": "select",
+      "id": "vertical_align",
+      "label": "Vertical Align",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_align",
+      "label": "Horizontal Align",
+      "options": [
+        {
+          "value": "right",
+          "label": "Right"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ],
+      "default": "left"
     }
   ],
   "presets": [
